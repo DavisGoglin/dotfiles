@@ -1,1 +1,23 @@
-/home/davis/rdp.sh
+#!/bin/bash
+
+if [ -z $1 ]; then
+	echo "Usage: rdp.sh target [user [domain]]"
+	exit 1
+fi
+
+TARGET=$1
+
+if [ -z $2 ]; then
+	USER=dgoglin
+else
+	USER=$2
+fi
+
+if [ -z $3 ]; then
+	DOMAIN=OIC-HQ.COM
+else
+	DOMAIN=$3
+fi
+
+echo "xfreerdp -u $USER -d $DOMAIN --disable-grab-keyboard --disable-decorations -size 1675x1015 +clipboard -themes -wallpaper -v $TARGET"
+xfreerdp -u $USER -d $DOMAIN --disable-grab-keyboard --disable-decorations -size 1675x1015 +clipboard -themes -wallpaper -v $TARGET 
