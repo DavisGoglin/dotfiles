@@ -1,0 +1,55 @@
+general {
+        colors = true
+        interval = 5
+	output_format = "none"
+}
+
+order += "disk /home/"
+order += "disk /"
+#order += "run_watch DHCP"
+order += "ipv6"
+order += "ethernet eth0"
+order += "load"
+#order += "volume master"
+order += "time"
+
+IPv6 {
+	format_up = "%ip"
+	format_down = "IPv6 down"
+}
+
+ethernet eth0 {
+        # if you use %speed, i3status requires root privileges
+        format_up = "%ip (%speed)"
+	format_down = "E down"
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhcpcd*.pid"
+}
+
+
+time {
+	#format = "%Y-%m-%d %H:%M:%S"
+	format= "%F %I:%M %p"
+}
+
+load {
+	format = "%1min %5min %15min"
+}
+
+volume master{
+	format = "v: %volume"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+
+disk "/" {
+	format = "/ %free"
+}
+
+disk "/home/" {
+	format = "/home %free"
+}
