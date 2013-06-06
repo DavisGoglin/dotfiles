@@ -1,4 +1,7 @@
 #!/bin/bash
+#Usage: $0
+#Gets a list of files in ./wallpaper, then displays a random on one the first
+#two montors using "feh"
 
 #shopt -s nullglob
 

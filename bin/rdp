@@ -1,7 +1,9 @@
 #!/bin/bash
+#Usage: rdp target [user [domain]]
+#Executes xfreerdp with prefered configuration, and echos the command executed
 
 if [ -z $1 ]; then
-	echo "Usage: rdp.sh target [user [domain]]"
+	echo "Usage: rdp target [user [domain]]"
 	exit 1
 fi
 
@@ -19,5 +21,7 @@ else
 	DOMAIN=$3
 fi
 
-echo "xfreerdp -u $USER -d $DOMAIN --disable-grab-keyboard --disable-decorations -size 1675x1015 +clipboard -themes -wallpaper -v $TARGET"
-xfreerdp -u $USER -d $DOMAIN --disable-grab-keyboard --disable-decorations -size 1675x1015 +clipboard -themes -wallpaper -v $TARGET 
+cmd="xfreerdp -u $USER -d $DOMAIN --disable-grab-keyboard --disable-decorations -size 1675x1015 +clipboard -themes -wallpaper -v $TARGET"
+
+echo $cmd
+$cmd
