@@ -1,0 +1,32 @@
+#!/bin/sh
+#based upon github/rtomayko/dotfiles/bin/orig
+#Usage: $0 FILES
+#Copies file to file.bak, confirming overwrite
+
+if [ $# = 0 ]; then
+	echo "Usage: bak FILE ..."
+	echo "copy FILE(s) to FILE.bak"
+else
+	#Overwrite all files
+	O_ALL=0
+
+	for f in "$@" ; do
+
+		target="$f.bak"
+		if [[ -f $target && $O_ALL -eq 0 ]]; then
+			#In case read is skipped for some reason
+			REPLY=n
+			read -p "Overwrite \"$target\"? ([y]es/[N]o/[a]ll)" -n 1 -r;
+			#move cursor to next line
+			echo 
+
+			#continue if the reply isn't "yes" or "all"
+			[[ ! $REPLY =~ ^[YyAa]$ ]] && continue;
+
+			#if the reply is all, set the overwrite all flag
+			[[ $REPLY =~ ^[Aa]$ ]] && O_ALL=1
+		fi
+
+		cp -vp "$f" $target 
+	done
+fi
