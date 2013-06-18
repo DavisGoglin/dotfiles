@@ -21,7 +21,7 @@ else
 	DOMAIN=$3
 fi
 
-cmd="xfreerdp -u $USER -d $DOMAIN --disable-grab-keyboard --disable-decorations -size 1675x1015 +clipboard -themes -wallpaper -v $TARGET"
+cmd="xfreerdp -u $USER -d $DOMAIN --disable-grab-keyboard -size 1675x1015 -clipboard -network broadband-low -v $TARGET"
 
 echo $cmd
 $cmd
