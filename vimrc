@@ -94,6 +94,9 @@ Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-surround'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
+Bundle 'davejlong/cf-utils.vim'
+Bundle 'bling/vim-airline'
+Bundle 'scrooloose/syntastic'
 
 " matchit unofficial
 Bundle 'tsaleh/vim-matchit'
@@ -101,14 +104,25 @@ Bundle 'tsaleh/vim-matchit'
 " javascript unofficial
 Bundle 'vim-scripts/JavaScript-Indent'
 
-Bundle 'scrooloose/syntastic'
-Bundle 'kien/ctrlp.vim'
-let g:ctrlp_working_path_mode = 0
-" Bundle 'tpope/vim-fugitive'
+Bundle 'Shougo/unite.vim'
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+let g:unite_source_history_yank_enable = 1
+nnoremap <C-p> :Unite -no-split -buffer-name=files -start-insert file_rec<CR>
+nnoremap <leader>y :Unite -buffer-name=yank history/yank<CR>
+nnoremap <leader>s :Unite -buffer-name=buffer -quick-match buffer<CR>
+"
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+	" Enable navigation with control-j and control-k in insert mode
+	imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+	imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+	nmap <buffer> Q <plug>(unite_exit)
+	nmap <buffer> <esc> <plug>(unite_exit)
+endfunction
 
-Bundle 'Lokaltog/vim-powerline'
-"doesn't work
-"let g:Powerline_symbols = 'fancy'
+Bundle 'Shougo/unite-outline'
+map <F3> :Unite outline<CR>
 
 Bundle 'altercation/vim-colors-solarized'
 set background=dark
