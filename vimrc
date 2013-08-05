@@ -96,7 +96,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'davejlong/cf-utils.vim'
 Bundle 'bling/vim-airline'
+
+""" temp hack for python2 editing on arch, where python -> python3
 Bundle 'scrooloose/syntastic'
+let g:syntastic_python_python_exe = 'python2'
 
 " matchit unofficial
 Bundle 'tsaleh/vim-matchit'
