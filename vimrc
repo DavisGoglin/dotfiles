@@ -97,6 +97,7 @@ Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'davejlong/cf-utils.vim'
 Bundle 'bling/vim-airline'
 Bundle 'jelera/vim-javascript-syntax'
+Bundle 'pangloss/vim-javascript'
 
 """ temp hack for python2 editing on arch, where python -> python3
 Bundle 'scrooloose/syntastic'
