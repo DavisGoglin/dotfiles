@@ -89,7 +89,6 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'SirVer/ultisnips'
 Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'kamykaze/snipmate_for_django'
 
 """ temp hack for python2 editing on arch, where python -> python3
 Bundle 'scrooloose/syntastic'
