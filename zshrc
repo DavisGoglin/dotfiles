@@ -14,3 +14,6 @@ fi
 autoload -Uz promptinit
 promptinit
 prompt fade grey red
+
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
