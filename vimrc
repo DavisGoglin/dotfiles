@@ -46,36 +46,26 @@ noremap <C-l> <C-w>l
 
 imap jj <esc>
 
-"kinda annoying
-"autocmd BufEnter * lcd %:p:h
-
 autocmd FileType php setlocal fo-=o
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType python setlocal ts=2 et sw=4 sts=4
 
-" http://stackoverflow.com/questions/164847/what-is-in-your-vimrc
-" Necesary  for lots of cool vim things
+" May not actually do anything
 set nocompatible
-" This shows what you are typing as a command.  I love this!
 set showcmd
-" Who doesn't like autoindent?
 set autoindent
-" Use english for spellchecking, but don't spellcheck by default
 if version >= 700
 	set spl=en spell
 	set nospell
 endif
-" Search mappings: These will make it so that going to the next one in a
-" search will center on the line it's found in.
-"map N Nzz
-"map n nzz
 
-" Swap ; and :  Convenient
+" Maybe someday
 " nnoremap ; :
 " nnoremap : ;
 
-" Folding
-set foldmethod=marker
+set foldmethod=indent
 nnoremap <space> za
+set foldlevelstart=99
 
 " keep at least 2 lines above/below
 set scrolloff=2
@@ -84,8 +74,7 @@ set scrolloff=2
 set noerrorbells
 set visualbell
 
-
-" vundle changes
+" vundle
 
 filetype off
 set rtp+=~/.vim/bundle/vundle
@@ -98,6 +87,8 @@ Bundle 'davejlong/cf-utils.vim'
 Bundle 'bling/vim-airline'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
+Bundle 'SirVer/ultisnips'
+Bundle 'hynek/vim-python-pep8-indent'
 
 """ temp hack for python2 editing on arch, where python -> python3
 Bundle 'scrooloose/syntastic'
@@ -127,10 +118,7 @@ endfunction
 Bundle 'Shougo/unite-outline'
 map <F3> :Unite outline<CR>
 
-Bundle 'altercation/vim-colors-solarized'
-set background=dark
-colorscheme solarized
+Bundle 'nanotech/jellybeans.vim'
+colorscheme jellybeans
 
 filetype plugin indent on
-
-
