@@ -17,9 +17,6 @@ Xft.hintstyle:              hintslight
 
 !-------------------------------------------------------------------------------
 ! URxvt settings
-! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
-! More info at:
-! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
 !-------------------------------------------------------------------------------
 !
 
@@ -63,74 +60,47 @@ URxvt.cursorUnderline:      false
 ! Pointer
 URxvt.pointerBlank:         true
 
-! Source: https://github.com/solarized/xresources
-
-! Solarized color scheme for the X Window System
-!
-! http://ethanschoonover.com/solarized
-
-! Common
-
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
-
-
-! Dark
-
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
-#define S_base3         #fdf6e3
-
-
-! Light
-
-! #define S_base03        #fdf6e3
-! #define S_base02        #eee8d5
-! #define S_base01        #93a1a1
-! #define S_base00        #839496
-! #define S_base0         #657b83
-! #define S_base1         #586e75
-! #define S_base2         #073642
-! #define S_base3         #002b36
-
-
-! To only apply colors to your terminal, for example, prefix
-! the color assignment statement with its name. Example:
-!
-! URxvt*background:            S_base03
-
-*background:              S_base03
-*foreground:              S_base0
-*fading:                  40
-*fadeColor:               S_base03
-*cursorColor:             S_base1
-*pointerColorBackground:  S_base01
-*pointerColorForeground:  S_base1
-
-*color0:                  S_base02
-*color1:                  S_red
-*color2:                  S_green
-*color3:                  S_yellow
-*color4:                  S_blue
-*color5:                  S_magenta
-*color6:                  S_cyan
-*color7:                  S_base2
-*color9:                  S_orange
-*color8:                  S_base03
-*color10:                 S_base01
-*color11:                 S_base00
-*color12:                 S_base0
-*color13:                 S_violet
-*color14:                 S_base1
-*color15:                 S_base3
+! Hybrid Terminal Colours
+! vim: ft=xdefaults
+ 
+! Tomorrow-Night Palette
+! Modifications to match jellybeans.vim
+#define t_background #151515
+#define t_current_line #282A2E
+#define t_selection #373B41
+#define t_foreground #C5C8C6
+#define t_comment #808080
+#define t_red #D75F5F
+#define t_orange #FFAF5F
+#define t_yellow #F0C674
+#define t_green #87AF5F
+#define t_aqua #8ABEB7
+#define t_blue #87AFD7
+#define t_purple #B294BB
+ 
+*background: t_background
+*foreground: t_foreground
+! black
+*color0: t_current_line
+*color8: t_selection
+! red
+*color1: #A54242
+*color9: t_red
+! green
+*color2: #8C9440
+*color10: t_green
+! yellow
+*color3: t_orange
+*color11: t_yellow
+! blue
+*color4: #5F819D
+*color12: t_blue
+! magenta
+*color5: #85678F
+*color13: t_purple
+! cyan
+*color6: #5E8D87
+*color14: t_aqua
+! white
+*color7: t_comment
+*color15: t_foreground
