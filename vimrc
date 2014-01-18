@@ -89,10 +89,7 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'SirVer/ultisnips'
 Bundle 'hynek/vim-python-pep8-indent'
-
-""" temp hack for python2 editing on arch, where python -> python3
 Bundle 'scrooloose/syntastic'
-let g:syntastic_python_python_exe = 'python2'
 
 " matchit unofficial
 Bundle 'tsaleh/vim-matchit'
@@ -120,5 +117,11 @@ map <F3> :Unite outline<CR>
 
 Bundle 'nanotech/jellybeans.vim'
 colorscheme jellybeans
+
+Bundle 'othree/html5.vim'
+let g:html5_event_handler_attributes_complete = 0
+let g:html5_rdfa_attributes_complete = 0
+let g:html5_microdata_attributes_complete = 0
+let g:html5_aria_attributes_complete = 0
 
 filetype plugin indent on
