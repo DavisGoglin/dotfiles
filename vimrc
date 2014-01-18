@@ -91,7 +91,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'hynek/vim-python-pep8-indent'
 
 Bundle 'scrooloose/syntastic'
--let g:syntastic_scss_sass_args='-I bower_components
+let g:syntastic_scss_sass_args='-I bower_components'
 
 " matchit unofficial
 Bundle 'tsaleh/vim-matchit'
