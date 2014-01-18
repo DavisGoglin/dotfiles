@@ -89,11 +89,12 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'SirVer/ultisnips'
 Bundle 'hynek/vim-python-pep8-indent'
+
 Bundle 'scrooloose/syntastic'
+-let g:syntastic_scss_sass_args='-I bower_components
 
 " matchit unofficial
 Bundle 'tsaleh/vim-matchit'
-
 
 Bundle 'Shougo/unite.vim'
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
