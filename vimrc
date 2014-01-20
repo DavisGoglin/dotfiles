@@ -92,6 +92,7 @@ Bundle 'hynek/vim-python-pep8-indent'
 
 Bundle 'scrooloose/syntastic'
 let g:syntastic_scss_sass_args='-I bower_components'
+let g:syntastic_javascript_checkers=['jshint']
 
 " matchit unofficial
 Bundle 'tsaleh/vim-matchit'
