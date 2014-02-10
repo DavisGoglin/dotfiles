@@ -45,7 +45,7 @@ path=(
   /usr/local/{bin,sbin}
   ~/bin/
   $path
-  ~/.gem/ruby/2.0.0/bin/
+  $(ruby -e 'puts Gem.user_dir')/bin
 )
 
 #
