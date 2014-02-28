@@ -25,6 +25,12 @@ let mapleader=","
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
+" leader directions splits that direction
+nmap <silent> <leader>l :vsp<CR><C-w>l
+nmap <silent> <leader>h :vsp<CR>
+nmap <silent> <leader>j :sp<CR><C-w>j
+nmap <silent> <leader>k :sp<CR>
+
 nnoremap <A-j> :m+<CR>==
 nnoremap <A-k> :m-2<CR>==
 nnoremap <A-h> <<
