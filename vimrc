@@ -89,7 +89,6 @@ Bundle 'gmarik/vundle'
 
 Bundle 'tpope/vim-surround'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
-"Bundle 'davejlong/cf-utils.vim'
 Bundle 'bling/vim-airline'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
@@ -100,16 +99,13 @@ Bundle 'scrooloose/syntastic'
 let g:syntastic_scss_sass_args='-I bower_components'
 let g:syntastic_javascript_checkers=['jshint']
 
-" matchit unofficial
-Bundle 'tsaleh/vim-matchit'
-
 Bundle 'Shougo/unite.vim'
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 let g:unite_source_history_yank_enable = 1
 nnoremap <C-p> :Unite -no-split -buffer-name=files -start-insert file_rec<CR>
 nnoremap <leader>y :Unite -buffer-name=yank history/yank<CR>
 nnoremap <leader>s :Unite -buffer-name=buffer -quick-match buffer<CR>
-"
+
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
 function! s:unite_settings()
@@ -119,9 +115,6 @@ function! s:unite_settings()
 	nmap <buffer> Q <plug>(unite_exit)
 	nmap <buffer> <esc> <plug>(unite_exit)
 endfunction
-
-Bundle 'Shougo/unite-outline'
-map <F3> :Unite outline<CR>
 
 Bundle 'nanotech/jellybeans.vim'
 colorscheme jellybeans
