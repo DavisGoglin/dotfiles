@@ -92,8 +92,10 @@ Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'bling/vim-airline'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
-Bundle 'SirVer/ultisnips'
 Bundle 'hynek/vim-python-pep8-indent'
+
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 let g:sparkupNextMapping = '<leader>m'
