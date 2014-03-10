@@ -45,6 +45,7 @@ font -misc-proggytinyttsz-*-*-*-*-*-*-*-*-*-*-*-*
 
 bar {
 	status_command i3status 
+	position top
 }
 
 #############
