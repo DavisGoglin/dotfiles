@@ -31,6 +31,13 @@ nmap <silent> <leader>h :vsp<CR>
 nmap <silent> <leader>j :sp<CR><C-w>j
 nmap <silent> <leader>k :sp<CR>
 
+" leader shortcuts
+" save
+nmap <silent> <leader>w :w<CR>
+" add a newline
+nmap <silent> <leader>o mzo<Esc>`z
+nmap <silent> <leader>O mzO<Esc>`z
+
 nnoremap <A-j> :m+<CR>==
 nnoremap <A-k> :m-2<CR>==
 nnoremap <A-h> <<
