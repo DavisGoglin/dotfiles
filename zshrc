@@ -13,3 +13,8 @@ fi
 # Customize to your needs...
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
+
+function chpwd() {
+	emulate -L zsh
+	ls -a
+}
