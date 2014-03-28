@@ -11,9 +11,5 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-autoload -Uz promptinit
-promptinit
-prompt fade grey red
-
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
