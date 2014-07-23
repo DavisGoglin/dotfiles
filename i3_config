@@ -54,6 +54,9 @@ bar {
 # terminal
 bindsym $mod+Return exec urxvt -e zsh
 
+# toggle master mute
+bindsym $mod+m exec amixer sset Master toggle
+
 # start ranger in a terminal
 bindsym $mod+n exec urxvt -e zsh -c ranger # this is really a stupid way to do it
 
