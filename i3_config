@@ -54,14 +54,16 @@ bar {
 # terminal
 bindsym $mod+Return exec urxvt -e zsh
 
-# toggle master mute
-bindsym $mod+m exec amixer sset Master toggle
-
-# start ranger in a terminal
-bindsym $mod+n exec urxvt -e zsh -c ranger # this is really a stupid way to do it
+# timed master mute for pandora commercials
+bindsym $mod+m exec "amixer sset Master mute && sleep 15 && amixer sset Master unmute"
+bindsym $mod+n exec "amixer sset Master mute && sleep 30 && amixer sset Master unmute"
+bindsym $mod+o exec amixer sset Master toggle
 
 # lock the screen
 bindsym $mod+p exec slock
+
+# start ranger in a terminal
+bindsym $mod+t exec urxvt -e zsh -c ranger # this is really a stupid way to do it
 
 # kill focused window
 bindsym $mod+Shift+Q kill
