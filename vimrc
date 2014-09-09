@@ -31,6 +31,9 @@ nmap <silent> <leader>h :vsp<CR>
 nmap <silent> <leader>j :sp<CR><C-w>j
 nmap <silent> <leader>k :sp<CR>
 
+" chance camelCase to camel_case - <leader>c[ase]
+nmap <silent> <leader>c vaw :s/\%V[A-Z]/\_\l\0/g<CR>
+
 " leader shortcuts
 " save
 nmap <silent> <leader>w :w<CR>
