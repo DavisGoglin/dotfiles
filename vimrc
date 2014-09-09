@@ -22,6 +22,8 @@ set pastetoggle=<F2>
 let mapleader=","
 
 "edit/reload vimrc
+" <leader>e[dit]v[im]
+" <leader>s[ource]v[im]
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
