@@ -23,12 +23,7 @@ set $sc1 DP-1
 ###########
 # Autorun #
 ###########
-
-exec dropboxd
-exec ~/bin/random_wallpaper.sh
-exec imwheel -b "000089"
-exec xmodmap -e 'clear Lock' -e 'keycode 66 = Escape'
-exec clipit
+# Now in .xinitrc
 
 ############
 # Settings #
