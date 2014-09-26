@@ -83,6 +83,10 @@ bindsym $mod+Shift+E exit
 for_window [title="Open Database.*"] floating enable
 for_window [title="Edit Entry"] floating enable
 for_window [title="Add Entry"] floating enable
+# DCSS
+for_window [title="Dungeon Crawl Stone Soup.*"] floating disable
+# xfreerdp
+for_window [title="FreeRDP:.*"] floating disable
 
 ##################
 # Window Control #
