@@ -6,6 +6,7 @@ general {
 
 order += "disk /home/"
 order += "disk /"
+order += "disk /tmp/"
 #order += "run_watch DHCP"
 order += "ipv6"
 order += "ethernet eth0"
@@ -52,4 +53,8 @@ disk "/" {
 
 disk "/home/" {
 	format = "/home %free"
+}
+
+disk "/tmp/" {
+	format = "/tmp %free"
 }
