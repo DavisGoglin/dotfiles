@@ -42,6 +42,8 @@ nmap <silent> <leader>w :w<CR>
 " add a newline
 nmap <silent> <leader>o mzo<Esc>`z
 nmap <silent> <leader>O mzO<Esc>`z
+" underline current line
+nmap <silent> <leader>u yyp:s/./-/g<CR>
 
 nnoremap <A-j> :m+<CR>==
 nnoremap <A-k> :m-2<CR>==
