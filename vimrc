@@ -66,9 +66,6 @@ noremap <C-l> <C-w>l
 
 imap jk <esc>
 
-" Auto highlight my notes as markdown
-autocmd BufRead,BufNewFile */PlainText\ 2/* set filetype=markdown
-
 " Filetype settings
 autocmd FileType php setlocal fo-=o
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
