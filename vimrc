@@ -72,7 +72,6 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType python setlocal ts=2 et sw=4 sts=4
 
 " May not actually do anything
-set nocompatible
 set showcmd
 set autoindent
 if version >= 700
@@ -96,11 +95,11 @@ set noerrorbells
 set visualbell
 
 " vundle
-
+set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Bundle 'gmarik/Vundle.vim'
 
 Bundle 'tpope/vim-surround'
 Bundle 'jeffkreeftmeijer/vim-numbertoggle'
@@ -109,19 +108,33 @@ Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'Valloric/YouCompleteMe'
-
+" has config
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
+" has config
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" has config
+Bundle 'scrooloose/syntastic'
+" has config
+Bundle 'Shougo/unite.vim'
+" has config
+Bundle 'nanotech/jellybeans.vim'
+" has config
+Bundle 'othree/html5.vim'
+
+call vundle#end()
+
+" untisnips 
 let g:UltiSnipsExpandTrigger="<c-c>"
 
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+" sparkup
 let g:sparkupNextMapping = '<leader>m'
 
-Bundle 'scrooloose/syntastic'
+" syntastic
 let g:syntastic_scss_sass_args='-I bower_components'
 let g:syntastic_javascript_checkers=['jshint']
 
-Bundle 'Shougo/unite.vim'
+" unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 let g:unite_source_history_yank_enable = 1
 nnoremap <C-p> :Unite -no-split -buffer-name=files -start-insert file_rec<CR>
@@ -138,10 +151,10 @@ function! s:unite_settings()
 	nmap <buffer> <esc> <plug>(unite_exit)
 endfunction
 
-Bundle 'nanotech/jellybeans.vim'
+" color scheme
 colorscheme jellybeans
 
-Bundle 'othree/html5.vim'
+" html5
 let g:html5_event_handler_attributes_complete = 0
 let g:html5_rdfa_attributes_complete = 0
 let g:html5_microdata_attributes_complete = 0
