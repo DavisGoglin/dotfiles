@@ -99,28 +99,21 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Bundle 'gmarik/Vundle.vim'
+Plugin 'gmarik/Vundle.vim'
 
-Bundle 'tpope/vim-surround'
-Bundle 'jeffkreeftmeijer/vim-numbertoggle'
-Bundle 'bling/vim-airline'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'pangloss/vim-javascript'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'Valloric/YouCompleteMe'
-" has config
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-" has config
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" has config
-Bundle 'scrooloose/syntastic'
-" has config
-Bundle 'Shougo/unite.vim'
-" has config
-Bundle 'nanotech/jellybeans.vim'
-" has config
-Bundle 'othree/html5.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-abolish'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
+Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'honza/vim-snippets'
+" has config from here on
+Plugin 'SirVer/ultisnips'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/unite.vim'
+Plugin 'nanotech/jellybeans.vim'
+" end has config
 
 call vundle#end()
 
@@ -153,11 +146,5 @@ endfunction
 
 " color scheme
 colorscheme jellybeans
-
-" html5
-let g:html5_event_handler_attributes_complete = 0
-let g:html5_rdfa_attributes_complete = 0
-let g:html5_microdata_attributes_complete = 0
-let g:html5_aria_attributes_complete = 0
 
 filetype plugin indent on
