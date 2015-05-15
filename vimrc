@@ -103,6 +103,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-repeat'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
