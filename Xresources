@@ -9,11 +9,15 @@ XLock.planfontset: 			-xos4-terminus-medium-r-normal--0-0-72-72-c-0-iso8859-1
 ! Xft settings
 !-------------------------------------------------------------------------------
 
-Xft.dpi:                    96
-Xft.antialias:              false
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintslight
+Xft.dpi:                    90
+!Xft.hintstyle:              hintslight
+Xft.autohint:		0
+Xft.lcdfilter:		lcddefault
+Xft.hintstyle:		hintfull
+Xft.hinting:		1
+Xft.antialias:		0
+Xft.rgba:		rgb
+
 
 !-------------------------------------------------------------------------------
 ! URxvt settings
