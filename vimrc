@@ -109,6 +109,7 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
+Plugin 'gabrielelana/vim-markdown'
 Plugin 'chase/vim-ansible-yaml'
 " has config from here on
 Plugin 'SirVer/ultisnips'
