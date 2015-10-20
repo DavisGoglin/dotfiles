@@ -117,6 +117,7 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/unite.vim'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'osyo-manga/vim-over'
 " end has config
 
 call vundle#end()
@@ -147,6 +148,10 @@ function! s:unite_settings()
 	nmap <buffer> Q <plug>(unite_exit)
 	nmap <buffer> <esc> <plug>(unite_exit)
 endfunction
+
+" vim-over
+nnoremap <silent><F8> :OverCommandLine<CR>
+vnoremap <silent><F8> <Esc>:OverCommandLine<CR>
 
 " color scheme
 colorscheme jellybeans
