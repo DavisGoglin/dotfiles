@@ -1,6 +1,6 @@
 syntax on
 set laststatus=2
-filetype indent on
+filetype plugin indent on
 set ai
 set nu
 set ic
@@ -69,6 +69,7 @@ imap jk <esc>
 " Filetype settings
 autocmd FileType php setlocal fo-=o
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType ansible setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType python setlocal ts=2 et sw=4 sts=4
 
 " May not actually do anything
@@ -108,6 +109,7 @@ Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
+Plugin 'chase/vim-ansible-yaml'
 " has config from here on
 Plugin 'SirVer/ultisnips'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
