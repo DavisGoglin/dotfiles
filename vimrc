@@ -107,11 +107,11 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'honza/vim-snippets'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'chase/vim-ansible-yaml'
 " has config from here on
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/syntastic'
@@ -121,6 +121,17 @@ Plugin 'osyo-manga/vim-over'
 " end has config
 
 call vundle#end()
+
+" YouCompleteMe
+" python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 " untisnips 
 let g:UltiSnipsExpandTrigger="<c-c>"
