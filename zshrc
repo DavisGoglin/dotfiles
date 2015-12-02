@@ -23,3 +23,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
 export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
 source /usr/bin/virtualenvwrapper_lazy.sh
+
+# Send a simlpler TERM identifer
+alias ssh='TERM=rxvt-unicode ssh'
