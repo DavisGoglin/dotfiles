@@ -55,7 +55,7 @@ bindsym $mod+n exec "amixer sset Master mute && sleep 30 && amixer sset Master u
 bindsym $mod+o exec amixer sset Master toggle
 
 # lock the screen
-bindsym $mod+p exec slock
+bindsym $mod+p exec ~/bin/lock
 
 # start ranger in a terminal
 bindsym $mod+t exec urxvt -e zsh -c ranger # this is really a stupid way to do it

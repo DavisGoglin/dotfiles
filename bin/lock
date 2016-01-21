@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Modified from
+# http://plankenau.com/blog/post-10/gaussianlock
+# https://www.reddit.com/r/i3wm/comments/2bdxra/gaussian_blur_lock_screen_with_i3lock_xport/
+
+tmpfile=$(mktemp --suffix=.png)
+scrot "$tmpfile"
+mogrify -scale 50% -blur 0x8 -scale 200% "$tmpfile"
+i3lock -i "$tmpfile"
