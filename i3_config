@@ -92,6 +92,31 @@ for_window [title="FreeRDP:.*"] floating disable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
+
+#########
+# Modes #
+#########
+
+# Audio
+# https://www.reddit.com/r/i3wm/comments/2a1zru/some_useful_i3_mode_menus/
+
+set $audiomenu "volume:  [+]5%  [-]5%  [m]ute  [r]eset [p]ause | play [n]uvoplayer p[i]anobar"
+bindsym $mod+u         mode $audiomenu
+
+mode $audiomenu {
+	bindsym r             exec --no-startup-id amixer -M sset Master playback 40%
+	bindsym plus          exec --no-startup-id amixer -M sset Master playback 5%+
+	bindsym KP_Add        exec --no-startup-id amixer -M sset Master playback 5%+
+	bindsym minus         exec --no-startup-id amixer -M sset Master playback 5%-
+	bindsym KP_Subtract   exec --no-startup-id amixer -M sset Master playback 5%-
+	bindsym m             exec --no-startup-id amixer sset Master playback toggle
+	bindsym p             exec --no-startup-id /bin/bash -c '(pidof nuvolaplayer3 > /dev/null && nuvolaplayer3ctl action pause) & (pidof pianobar > /dev/null && echo -n '''S''' > ~/.config/pianobar/ctl)'
+	bindsym n             exec --no-startup-id /bin/bash -c '(pidof nuvolaplayer3 > /dev/null && nuvolaplayer3ctl action play)'
+	bindsym i             exec --no-startup-id /bin/bash -c '(pidof pianobar > /dev/null && echo -n '''P''' > ~/.config/pianobar/ctl)'
+	bindsym Return        mode "default"
+	bindsym Escape        mode "default"
+}
+
 ##################
 # Window Control #
 ##################
