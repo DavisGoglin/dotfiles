@@ -88,6 +88,10 @@ for_window [title="Dungeon Crawl Stone Soup.*"] floating disable
 # xfreerdp
 for_window [title="FreeRDP:.*"] floating disable
 
+# Test floating dialogs
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
 ##################
 # Window Control #
 ##################
@@ -190,3 +194,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# New, sticky window
+bindsym $mod+Shift+s sticky toggle
