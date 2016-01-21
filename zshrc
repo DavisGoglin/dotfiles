@@ -26,3 +26,6 @@ source /usr/bin/virtualenvwrapper_lazy.sh
 
 # Send a simlpler TERM identifer
 alias ssh='TERM=rxvt-unicode ssh'
+
+# npm
+export PATH=~/node_modules/.bin:$PATH
