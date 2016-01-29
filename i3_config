@@ -92,6 +92,8 @@ for_window [title="FreeRDP:.*"] floating disable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
+# Keep citrix on CTX
+assign [class="Wfica"] → "9: CTX"
 
 #########
 # Modes #
@@ -132,7 +134,7 @@ workspace 5 output $sc0
 workspace "6: ff" output $sc1
 workspace "7: rdp" output $sc1
 workspace 8 output $sc1
-workspace 9 output $sc1
+workspace "9: CTX" output $sc1
 workspace "10: ff2" output $sc1
 
 # switch to workspace
@@ -144,7 +146,7 @@ bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace "6: ff"
 bindsym $mod+7 workspace "7: rdp"
 bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+9 workspace "9: CTX"
 bindsym $mod+0 workspace "10: ff2"
 
 # move focused container to workspace
@@ -156,7 +158,7 @@ bindsym $mod+Shift+percent move workspace 5
 bindsym $mod+Shift+asciicircum move workspace "6: ff"
 bindsym $mod+Shift+ampersand move workspace "7: rdp"
 bindsym $mod+Shift+asterisk move workspace 8
-bindsym $mod+Shift+parenleft move workspace 9
+bindsym $mod+Shift+parenleft move workspace "9: CTX"
 bindsym $mod+Shift+parenright move workspace "10: ff2"
 
 #moving between workspaces, screens
