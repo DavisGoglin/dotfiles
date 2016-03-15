@@ -70,7 +70,8 @@ imap jk <esc>
 autocmd FileType php setlocal fo-=o
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType ansible setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType python setlocal ts=2 et sw=4 sts=4
+autocmd FileType python setlocal ts=2 sw=4 sts=4 expandtab
+autocmd BufRead,BufNewFile ~/projects/nav_* set filetype=sqlserver
 
 " May not actually do anything
 set showcmd
@@ -110,6 +111,11 @@ Plugin 'bling/vim-airline'
 Plugin 'honza/vim-snippets'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'chase/vim-ansible-yaml'
+Plugin 'vim-scripts/align'
+Plugin 'jdevera/vim-tsql'
+Plugin 'PProvost/vim-ps1'
+Plugin 'hynek/vim-python-pep8-indent'
+
 " has config from here on
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
@@ -118,6 +124,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/unite.vim'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'osyo-manga/vim-over'
+Plugin 'junegunn/vim-easy-align'
 " end has config
 
 call vundle#end()
@@ -163,6 +170,13 @@ endfunction
 " vim-over
 nnoremap <silent><F8> :OverCommandLine<CR>
 vnoremap <silent><F8> <Esc>:OverCommandLine<CR>
+
+" easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " color scheme
 colorscheme jellybeans
