@@ -71,6 +71,7 @@ autocmd FileType php setlocal fo-=o
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType ansible setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType python setlocal ts=2 sw=4 sts=4 expandtab
+autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
 autocmd BufRead,BufNewFile ~/projects/nav_* set filetype=sqlserver
 
 " May not actually do anything
@@ -103,6 +104,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'gioele/vim-autoswap'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-repeat'
@@ -112,33 +114,23 @@ Plugin 'honza/vim-snippets'
 Plugin 'gabrielelana/vim-markdown'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'vim-scripts/align'
-Plugin 'jdevera/vim-tsql'
 Plugin 'PProvost/vim-ps1'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'jshint/jshint'
 
 " has config from here on
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/unite.vim'
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'osyo-manga/vim-over'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'Chiel92/vim-autoformat'
 " end has config
 
 call vundle#end()
-
-" YouCompleteMe
-" python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 " untisnips 
 let g:UltiSnipsExpandTrigger="<c-c>"
@@ -179,6 +171,9 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " color scheme
-colorscheme jellybeans
+colorscheme elflord
+
+" autoformat
+noremap <F3> :Autoformat<CR>
 
 filetype plugin indent on
