@@ -199,7 +199,7 @@ let g:deoplete#enable_at_startup = 1
 "inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 "inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 " Avoide semshi/deoplete issues
-let g:deoplete#auto_complete_delay = 200
+call deoplete#custom#option("auto_complete_delay", 200)
 
 " neosnippet
 " Plugin key-mappings.
