@@ -1,5 +1,3 @@
-" An example for a vimrc file.
-
 set backup             " keep a backup file (restore to previous version)
 set undofile           " keep an undo file (undo changes after closing)
 set ruler              " show the cursor position all the time
@@ -98,6 +96,13 @@ nmap <silent> <leader>O mzO<Esc>`z
 " underline current line
 nmap <silent> <leader>u yyp:s/./-/g<CR>
 
+" escape terminal
+tnoremap <leader>x <C-\><C-n>
+
+" tab navigation
+nmap <silent> <leader>f gt
+nmap <silent> <leader>d gT
+
 " Move line keys
 nnoremap <A-j> :m+<CR>==
 nnoremap <A-k> :m-2<CR>==
@@ -139,6 +144,21 @@ set scrolloff=2
 " error bells
 set noerrorbells
 set visualbell
+
+" wsl clipboard
+set clipboard+=unnamedplus
+let g:clipboard = {
+          \   'name': 'win32yank-wsl',
+          \   'copy': {
+          \      '+': 'win32yank.exe -i --crlf',
+          \      '*': 'win32yank.exe -i --crlf',
+          \    },
+          \   'paste': {
+          \      '+': 'win32yank.exe -o --lf',
+          \      '*': 'win32yank.exe -o --lf',
+          \   },
+          \   'cache_enabled': 0,
+          \ }
 
 " vimplug
 
