@@ -164,7 +164,6 @@ let g:clipboard = {
 
 call plug#begin()
 
-Plug 'ripxorip/bolt.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'gioele/vim-autoswap'
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-abolish'
