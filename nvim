@@ -1,238 +1,127 @@
-set nobackup " coc
-set nowritebackup " coc
-"set backup             " keep a backup file (restore to previous version)
-set undofile           " keep an undo file (undo changes after closing)
-set ruler              " show the cursor position all the time
-set showcmd            " display incomplete commands
+--todo
+-- difforg
+vim.o.undofile = true
+vim.o.mouse = i -- only insert
+vim.o.scrolloff = 2
+vim.o.visualbell = true
+vim.wo.number = true
+vim.wo.relativenumber = true
 
-set number
-set relativenumber
+vim.wo.conceallevel=2
+vim.wo.concealcursor = 'niv'
 
-" Mostly disable mouse, only insert
-set mouse=i
 
-" Don't use Ex mode, use Q for formatting
-noremap Q gq
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.hlsearch = false
 
-" Switch syntax highlighting on
-syntax on
+vim.g.mapleader=","
 
-" I like highlighting strings inside C comments.
-let c_comment_strings=1
+function map(mode, shortcut, command)
+	vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
+end
 
-" Enable file type detection.
-" Use the default filetype settings, so that mail gets 'textwidth' set to 72,
-" 'cindent' is on in C files, etc.
-" Also load indent files, to automatically do language-dependent indenting.
-filetype plugin indent on
+-- motion over wraps
+map('n', 'j', 'gj')
+map('n', 'k', 'gk')
 
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-	command DiffOrig vert new | set buftype=nofile | read ++edit # | 0d_ | diffthis
-				\ | wincmd p | diffthis
-endif
+-- edit/reload vimrc
+map('n', '<leader>ev', ':e '..vim.env.MYVIMRC..'<CR>')
+map('n', '<leader>sv', ':so '..vim.env.MYVIMRC..'<CR>')
 
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-" source ~/.vimrc
+-- leader directions splits that direction
+map('n', 'k', 'gk')
+map('n', '<leader>l', ':vsp<CR><C-w>l')
+map('n', '<leader>h', ':vsp<CR>')
+map('n', '<leader>j', ':sp<CR><C-w>j')
+map('n', '<leader>k', ':sp<CR>')
 
-" Orig .vimrc below
-set backupdir=~/.vimbackup//
-set directory=~/.vimbackup//
+-- map ctrl>movement to C-w movement
+map('n', '<C-h>', '<C-w>h')
+map('n', '<C-j>', '<C-w>j')
+map('n', '<C-k>', '<C-w>k')
+map('n', '<C-l>', '<C-w>l')
 
-set ignorecase
-set smartcase
-set incsearch
-set nohlsearch
+-- leader directions splits that direction
+map('n', '<leader>l', ':vsp<CR><C-w>l')
+map('n', '<leader>h', ':vsp<CR>')
+map('n', '<leader>j', ':sp<CR><C-w>j')
+map('n', '<leader>k', ':sp<CR>')
 
-"wrapping navigation fixer
-nnoremap j gj
-nnoremap k gk
+-- underline current line
+map('n', '<leader>u', 'yyp:s/./-/g<CR>')
 
-"allow pasting without auto-indenting
-set pastetoggle=<F2>
+-- save
+map('n', '<leader>w', ':w<CR>')
+-- add a newline
+map('n', '<leader>o', 'mzo<Esc>`z')
+map('n', '<leader>O', 'mzO<Esc>`z')
 
-"change mapleader to , from \
-let mapleader=","
+-- escape terminal
+map('t', '<leader>x', '<C-\\><C-n>')
 
-"edit/reload vimrc
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+-- tab navigation
+map('n', '<leader>f', 'gt')
+map('n', '<leader>d', 'gT')
 
-" leader directions splits that direction
-nmap <silent> <leader>l :vsp<CR><C-w>l
-nmap <silent> <leader>h :vsp<CR>
-nmap <silent> <leader>j :sp<CR><C-w>j
-nmap <silent> <leader>k :sp<CR>
+-- Move line keys
+map('n', '<A-j>', ':m+<CR>==')
+map('n', '<A-k>', ':m-2<CR>==')
+map('n', '<A-h>', '<<')
+map('n', '<A-l>', '>>')
+map('i', '<A-j>', '<Esc>:m+<CR>==gi')
+map('i', '<A-k>', '<Esc>:m-2<CR>==gi')
+map('i', '<A-h>', '<Esc><<`]a')
+map('i', '<A-l>', '<Esc>>>`]a')
+map('v', '<A-j>', ':m\'>+<CR>gv=gv')
+map('v', '<A-k>', ':m-2<CR>gv=gv')
+map('v', '<A-h>', '<gv')
+map('v', '<A-l>', '>gv')
 
-" map ctrl>movement to C-w movement
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+-- Escape after mashing jkjk
+map('i', 'jk', '<esc>')
+map('i', 'kj', '<esc>')
 
-" chance camelCase to camel_case - <leader>c[ase]
-nmap <silent> <leader>c vaw :s/\%V[A-Z]/\_\l\0/g<CR>
+-- Filetype settings
+vim.cmd('autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab')
+vim.cmd('autocmd FileType ansible setlocal ts=2 sts=2 sw=2 expandtab')
+vim.cmd('autocmd FileType python setlocal ts=2 sw=4 sts=4 expandtab')
+vim.cmd('autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab')
 
-" leader directions splits that direction
-nmap <silent> <leader>l :vsp<CR><C-w>l
-nmap <silent> <leader>h :vsp<CR>
-nmap <silent> <leader>j :sp<CR><C-w>j
-nmap <silent> <leader>k :sp<CR>
-"
-" underline current line
-nmap <silent> <leader>u yyp:s/./-/g<CR>
+-- folding
+vim.wo.foldmethod = indent
+vim.g.foldlevelstart=99
+map('n', '<space>', 'za')
 
-" leader shortcuts
-" save
-nmap <silent> <leader>w :w<CR>
-" add a newline
-nmap <silent> <leader>o mzo<Esc>`z
-nmap <silent> <leader>O mzO<Esc>`z
-" underline current line
-nmap <silent> <leader>u yyp:s/./-/g<CR>
+-- vim plug
+-- install: https://github.com/junegunn/vim-plug?tab=readme-ov-file
+local Plug = vim.fn['plug#']
+vim.call('plug#begin')
 
-" escape terminal
-tnoremap <leader>x <C-\><C-n>
+Plug('folke/tokyonight.nvim') -- color scheme
+Plug('gioele/vim-autoswap') -- deal with swap files
+Plug('machakann/vim-sandwich') -- surround
+Plug('tpope/vim-abolish') -- find/replacer
+Plug('tpope/vim-repeat')
+Plug('vim-airline/vim-airline')
+Plug('maksimr/vim-jsbeautify')
+Plug('mattn/emmet-vim') -- HTML expansion
+-- below are plugs with config
+Plug('junegunn/vim-easy-align')
+Plug('Chiel92/vim-autoformat')
 
-" tab navigation
-nmap <silent> <leader>f gt
-nmap <silent> <leader>d gT
+vim.call('plug#end')
 
-" Move line keys
-nnoremap <A-j> :m+<CR>==
-nnoremap <A-k> :m-2<CR>==
-nnoremap <A-h> <<
-nnoremap <A-l> >>
-inoremap <A-j> <Esc>:m+<CR>==gi
-inoremap <A-k> <Esc>:m-2<CR>==gi
-inoremap <A-h> <Esc><<`]a
-inoremap <A-l> <Esc>>>`]a
-vnoremap <A-j> :m'>+<CR>gv=gv
-vnoremap <A-k> :m-2<CR>gv=gv
-vnoremap <A-h> <gv
-vnoremap <A-l> >gv
+-- easy-align
+-- Start interactive EasyAlign in visual mode (e.g. vipga)
+vim.api.nvim_set_keymap('x', 'ga', '<Plug>(EasyAlign)', { silent = true })
+-- Start interactive EasyAlign for a motion/text object (e.g. gaip)
+vim.api.nvim_set_keymap('n', 'ga', '<Plug>(EasyAlign)', { silent = true })
 
-" Escape after mashing jkjk
-imap jk <esc>
+-- autoformat
+map('n', '<F3>', ':Autoformat<CR>')
 
-" Filetype settings
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType ansible setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType python setlocal ts=2 sw=4 sts=4 expandtab
-autocmd FileType javascript setlocal ts=4 sw=4 sts=4 expandtab
+-- end plugins
+vim.cmd('silent! colorscheme tokyonight-night')
 
-" No idea
-set showcmd
-set autoindent
-if version >= 700
-	set spl=en spell
-	set nospell
-endif
-
-set foldmethod=indent
-nnoremap <space> za
-set foldlevelstart=99
-
-" keep at least 2 lines above/below
-set scrolloff=2
-
-" error bells
-set noerrorbells
-set visualbell
-
-" wsl clipboard
-set clipboard+=unnamedplus
-let g:clipboard = {
-          \   'name': 'win32yank-wsl',
-          \   'copy': {
-          \      '+': 'win32yank.exe -i --crlf',
-          \      '*': 'win32yank.exe -i --crlf',
-          \    },
-          \   'paste': {
-          \      '+': 'win32yank.exe -o --lf',
-          \      '*': 'win32yank.exe -o --lf',
-          \   },
-          \   'cache_enabled': 0,
-          \ }
-
-" vimplug
-
-call plug#begin()
-
-Plug 'gioele/vim-autoswap'
-Plug 'machakann/vim-sandwich'
-Plug 'tpope/vim-abolish' " find/replacer
-Plug 'tpope/vim-repeat'
-Plug 'bling/vim-airline'
-" Plug 'hynek/vim-python-pep8-indent'
-Plug 'maksimr/vim-jsbeautify'
-" Plug 'jshint/jshint' # Js analasys
-Plug 'mattn/emmet-vim' " HTML expansion
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " Semantic highlights
-
-" has config from here on
-Plug 'junegunn/vim-easy-align'
-Plug 'Chiel92/vim-autoformat'
-" CocInstall coc-pyright
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-call plug#end()
-
-"" coc config
-set updatetime=300
-set signcolumn=yes
-
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Formatting selected code
-"xmap <leader>f  <Plug>(coc-format-selected)
-"nmap <leader>f  <Plug>(coc-format-selected)
-
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" Add `:Format` command to format current buffer
-command! -nargs=0 Format :call CocActionAsync('format')
-
-" Add `:OR` command for organize imports of the current buffer
-command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
-
-" airline coc
-let g:airline#extensions#coc#enabled = 1
-
-"" end coc
-
-" easy-align
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-" autoformat
-noremap <F3> :Autoformat<CR>
-
-" End plugins
-
-" color scheme
-colorscheme koehler
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-
-filetype plugin indent on
