@@ -1,0 +1,16 @@
+[font.bold]
+family = "FiraCode"
+style = "Bold"
+
+[font.italic]
+family = "FiraCode"
+style = "Italic"
+
+[font.normal]
+family = "FiraCode"
+style = "Regular"
+
+[keyboard]
+bindings = [
+   { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" }
+]

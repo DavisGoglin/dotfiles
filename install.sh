@@ -1,6 +1,10 @@
 #! /bin/bash
 
-ln -s ~/dotfiles/bin ~/bin
+if ! [ -L ~/bin ]; then
+	ln -s ~/dotfiles/bin ~/bin
+fi
+
+ln -s ~/dotfiles/alacritty.toml ~/.config/alacritty.toml
 
 # nvim
 mkdir -p ~/.config/nvim
