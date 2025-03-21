@@ -6,10 +6,11 @@ fi
 
 ln -s ~/dotfiles/alacritty.toml ~/.config/alacritty.toml
 
-# nvim
+mkdir -p ~/.config/hypr
+ln -s ~/dotfiles/hyprland.conf ~/.config/hypr/hyprland.conf
+
 mkdir -p ~/.config/nvim
 ln -s ~/dotfiles/nvim ~/.config/nvim/init.lua
 
-# tmux
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 
