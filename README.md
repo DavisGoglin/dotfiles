@@ -12,3 +12,10 @@ My current collection of basic config files for my linux enviorment.
 ## TODO
 
 * nvim lsp
+
+## Setup notes
+
+- AUR: rua
+- https://wiki.archlinux.org/title/GameMode
+- swayidle
+- sway-audio-idle-inhibit-git
