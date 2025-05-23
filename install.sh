@@ -14,3 +14,5 @@ ln -s ~/dotfiles/nvim ~/.config/nvim/init.lua
 
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 
+mkdir -p ~/.config/waybar
+ln -s ~/dotfiles/waybar ~/.config/waybar/config
