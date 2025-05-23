@@ -18,4 +18,8 @@ My current collection of basic config files for my linux enviorment.
 - AUR: rua
 - https://wiki.archlinux.org/title/GameMode
 - swayidle
+- hyprshot
 - sway-audio-idle-inhibit-git
+- dropbox
+    - python-gpgme 
+    - libappindicator-gtk3
