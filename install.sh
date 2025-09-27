@@ -4,8 +4,6 @@ if ! [ -L ~/bin ]; then
 	ln -s ~/dotfiles/bin ~/bin
 fi
 
-ln -s ~/dotfiles/fish_functions ~/.config/fish/functions 
-
 ln -s ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 
 mkdir -p ~/.config/hypr
