@@ -7,7 +7,7 @@ My current collection of basic config files for my linux enviorment.
 * Vim using Plug
 * A small collction of utility scripts
 * hyprland
-* fish?
+* fish
 
 ## TODO
 
@@ -18,18 +18,21 @@ My current collection of basic config files for my linux enviorment.
 - AUR: rua
 - https://wiki.archlinux.org/title/GameMode
 - fish
-    - ssh agent
-- shell
+    - fish-ssh-agent
+    - add ~/bin to path
+- utils
+    - https://github.com/ibraheemdev/modern-unix
     - broot
     - eza
 - fonts
     - fira-code
     - sudo pacman -S (pacman -Ssq noto-fonts)
     - atkinson-hyperlegible
-- firefox
-    - override fonts with atkinson
-    - monospace fira code
-    - test https://heistak.github.io/your-code-displays-japanese-wrong/
+- firefox settings
+    - fonts
+        - override all fonts with atkinson
+        - monospace fira code
+        - test https://heistak.github.io/your-code-displays-japanese-wrong/
     - home
         - no sponsored
         - no search
@@ -39,6 +42,7 @@ My current collection of basic config files for my linux enviorment.
     - restore ext settings
         - ublock
         - libredirect
+        - frankerfacez
 - anki
     - https://github.com/99-Knots/PrettyYomitanCards
 - mpv
