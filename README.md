@@ -8,6 +8,7 @@ My current collection of basic config files for my linux enviorment.
 * A small collction of utility scripts
 * hyprland
 * fish
+* kitty
 
 ## TODO
 
@@ -48,9 +49,8 @@ My current collection of basic config files for my linux enviorment.
 - mpv
 - hyprland
     - noto-fonts
-    - swayidle
+    - hypridle
     - hyprshot
-    - sway-audio-idle-inhibit-git
     - waybar
     - dunst
     - pipewire
@@ -59,3 +59,4 @@ My current collection of basic config files for my linux enviorment.
     - xdg-desktop-portal-gtk
     - waybar
     - pavucontrol
+    - wofi
