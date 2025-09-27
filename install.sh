@@ -4,7 +4,7 @@ if ! [ -L ~/bin ]; then
 	ln -s ~/dotfiles/bin ~/bin
 fi
 
-ln -s ~/dotfiles/alacritty.toml ~/.config/alacritty.toml
+ln -s ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 
 mkdir -p ~/.config/hypr
 ln -s ~/dotfiles/hyprland.conf ~/.config/hypr/hyprland.conf
@@ -16,3 +16,6 @@ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 
 mkdir -p ~/.config/waybar
 ln -s ~/dotfiles/waybar ~/.config/waybar/config
+
+mkdir -p ~/.config/waybar.style.css
+ln -s ~/dotfiles/waybar.style.css ~/.config/waybar/style.css
