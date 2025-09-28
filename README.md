@@ -60,3 +60,5 @@ My current collection of basic config files for my linux enviorment.
     - waybar
     - pavucontrol
     - wofi
+    - udiskie
+        - libappindicator-gtk3
