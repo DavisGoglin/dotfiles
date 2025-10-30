@@ -89,6 +89,14 @@ map('n', '<F3>', ':Autoformat<CR>')
 add({source = 'folke/tokyonight.nvim'}) -- color scheme
 vim.cmd('colorscheme tokyonight-night')
 
+add({source = 'folke/trouble.nvim'})
+require("trouble").setup({})
+map('n', "<leader>td", "<cmd>Trouble diagnostics toggle<cr>")
+map('n', "<leader>tD", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>")
+map('n', "<leader>tl", "<cmd>Trouble loclist toggle<cr>")
+map('n', "<leader>tq", "<cmd>Trouble qflist toggle<cr>")
+map('n', "<leader>ts", "<cmd>Trouble symbols toggle<cr>")
+
 -- https://nvim-mini.org/mini.nvim/
 -- reviewed 2025-10
 
@@ -125,6 +133,9 @@ require('mini.jump').setup()
 -- require('mini.jump2d').setup()
 -- require('mini.misc').setup()
 require('mini.pick').setup() -- TODO: add hotkey later
+map('n', '<leader>mf', '<cmd>Pick files<cr>')
+map('n', '<leader>mg', '<cmd>Pick grep_live<cr>')
+map('n', '<leader>mG', '<cmd>Pick grep<cr>')
 -- require('mini.sessions').setup()
 -- require('mini.visits').setup()
 
