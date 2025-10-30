@@ -28,6 +28,11 @@ input {
         numlock
     }
 
+    mouse {
+	    accel-speed 0.1
+	    accel-profile "flat"
+    }
+
     // Uncomment this to make the mouse warp to the center of newly focused windows.
     // warp-mouse-to-focus
 
@@ -206,6 +211,11 @@ window-rule {
 }
 
 binds {
+
+    Mod+Apostrophe { spawn "wl-kbptr" "-o" "modes=tile,click"; }
+    Mod+Ctrl+Apostrophe { spawn "wl-kbptr" "-o" "modes=floating,click" "-o" "mode_floating.source=detect"; }
+    Mod+Shift+Apostrophe { spawn "wl-kbptr" "-o" "modes=bisect,click"; }
+
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
     // like wev.
@@ -241,7 +251,7 @@ binds {
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
-    Mod+O repeat=false { toggle-overview; }
+    Mod+semicolon repeat=false { toggle-overview; }
 
     Mod+C repeat=false { close-window; }
 
@@ -262,10 +272,10 @@ binds {
     // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
     // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
 
-    Mod+Home { focus-column-first; }
-    Mod+End  { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
+    Mod+O { focus-column-first; }
+    Mod+P  { focus-column-last; }
+    Mod+Ctrl+O { move-column-to-first; }
+    Mod+Ctrl+P  { move-column-to-last; }
 
     Mod+Ctrl+H     { focus-monitor-left; }
     Mod+Ctrl+J     { focus-monitor-down; }
@@ -370,11 +380,11 @@ binds {
     Mod+Shift+R { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F { fullscreen-window; }
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
-    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+Shift+F { expand-column-to-available-width; }
 
     // Is now close
     //Mod+C { center-column; }
@@ -416,7 +426,7 @@ binds {
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Alt+Print { spawn-sh "hyprshot --raw -m region | llm 'extract text' -m openrouter/google/gemini-2.5-flash-lite -a - | wl-copy && wl-paste | xargs -0 notify-send Results"; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
