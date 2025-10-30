@@ -53,6 +53,7 @@ My current collection of basic config files for my linux enviorment.
     - https://github.com/99-Knots/PrettyYomitanCards
 - mpv
 - wayland
+    - wl-kbptr?
     - hyprland
         - noto-fonts
         - hypridle
