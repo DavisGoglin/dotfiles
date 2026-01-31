@@ -19,3 +19,6 @@ ln -s ~/dotfiles/waybar ~/.config/waybar/config
 
 mkdir -p ~/.config/waybar.style.css
 ln -s ~/dotfiles/waybar.style.css ~/.config/waybar/style.css
+
+mkdir -p ~/.config/fuzzel
+ln -s ~/dotfiles/fuzzel.ini ~/.config/fuzzel/fuzzel.ini
