@@ -44,6 +44,9 @@ map('n', '<leader>w', ':w<CR>')
 -- escape terminal
 map('t', '<leader>x', '<C-\\><C-n>')
 
+-- hack python format
+map('n', '<leader>af', '<cmd>silent !black %<cr>')
+
 
 --------
 --- mini
@@ -81,7 +84,7 @@ require('nvim-treesitter.configs').setup({
 })
 
 add({source = 'neovim/nvim-lspconfig'})
-vim.lsp.enable({'pyright', 'rust_analyzer'})
+vim.lsp.enable({'basedpyright', 'rust_analyzer'})
 
 add({source = 'vim-autoformat/vim-autoformat'})
 map('n', '<F3>', ':Autoformat<CR>')
