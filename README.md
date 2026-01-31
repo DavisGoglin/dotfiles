@@ -33,7 +33,7 @@ My current collection of basic config files for my linux enviorment.
 - fonts
     - fira-code
     - sudo pacman -S (pacman -Ssq noto-fonts)
-    - atkinson-hyperlegible
+    - atkinson-hyperlegible (next?)
 - firefox settings
     - fonts
         - override all fonts with atkinson
