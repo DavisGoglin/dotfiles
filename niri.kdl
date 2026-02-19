@@ -229,6 +229,11 @@ window-rule {
 	open-focused true
 }
 
+window-rule {
+	match title="AJT Japanese - Audio search"
+	open-floating true
+}
+
 // startup
 
 window-rule {
