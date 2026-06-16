@@ -132,6 +132,8 @@ layout {
 spawn-at-startup "dunst"
 spawn-at-startup "udiskie"
 spawn-at-startup "fcitx5"
+spawn-at-startup "vesktop"
+spawn-at-startup "keepassxc"
 // systemd --user
 // spawn-at-startup "waybar"
 // spawn-at-startup "swayidle" "-w" "timeout" "601" "'niri msg action power-off-monitors'"
@@ -243,6 +245,10 @@ window-rule {
 }
 
 binds {
+	// screencat target
+	Mod+t { set-dynamic-cast-window; }
+
+	// Keyboard screen mouse control
 	Mod+Apostrophe { spawn "wl-kbptr" "-o" "modes=tile,click"; }
 	Mod+Ctrl+Apostrophe { spawn "wl-kbptr" "-o" "modes=floating,click" "-o" "mode_floating.source=detect"; }
 	Mod+Shift+Apostrophe { spawn "wl-kbptr" "-o" "modes=bisect,click"; }
