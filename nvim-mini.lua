@@ -15,9 +15,9 @@ function map(mode, shortcut, command)
 end
 
 map('n', '<space>', 'za')
--- https://www.jackfranklin.co.uk/blog/code-folding-in-vim-neovim/
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- https://github.com/nvim-treesitter/nvim-treesitter#folds
+vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.wo[0][0].foldmethod = 'expr'
 vim.opt.foldcolumn = "0"
 vim.opt.foldtext = ""
 vim.opt.foldlevelstart = 3
@@ -70,17 +70,15 @@ require('mini.deps').setup({ path = { package = path_package } })
 
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
--- https://jacksmith.xyz/blog/setting-up-neovim-tree-sitter-and-built-in-lsp/
 add({
   source = 'nvim-treesitter/nvim-treesitter',
-  -- Use 'master' while monitoring updates in 'main'
-  checkout = 'master',
-  monitor = 'main',
+  checkout = 'main',
   hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
 })
-require('nvim-treesitter.configs').setup({
-  ensure_installed = { 'lua', 'python', 'rust' },
-  highlight = { enable = true },
+require('nvim-treesitter').install{'lua', 'python', 'rust'}
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'python', 'rust', 'lua' },
+  callback = function() vim.treesitter.start() end,
 })
 
 add({source = 'neovim/nvim-lspconfig'})
