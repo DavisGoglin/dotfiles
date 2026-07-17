@@ -249,8 +249,8 @@ binds {
 	Mod+t { set-dynamic-cast-window; }
 
 	// Keyboard screen mouse control
-	Mod+Apostrophe { spawn "wl-kbptr" "-o" "modes=tile,click"; }
-	Mod+Ctrl+Apostrophe { spawn "wl-kbptr" "-o" "modes=floating,click" "-o" "mode_floating.source=detect"; }
+	Mod+Ctrl+Apostrophe { spawn "wl-kbptr" "-o" "modes=tile,click"; }
+	Mod+Apostrophe { spawn "wl-kbptr" "-o" "modes=floating,click" "-o" "mode_floating.source=detect"; }
 	Mod+Shift+Apostrophe { spawn "wl-kbptr" "-o" "modes=bisect,click"; }
 
 	// Keys consist of modifiers separated by + signs, followed by an XKB key name
