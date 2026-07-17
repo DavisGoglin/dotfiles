@@ -45,6 +45,12 @@ My current collection of basic config files for my linux enviorment.
     - search:
         - no sponsor
         - remove unused engines
+    - accessability:
+        - always show scrollbars
+    - about:config
+        - make scrollbar bigger: https://www.dedoimedo.com/computers/firefox-scrollbars.html
+            - bool: widget.non-native-theme.enabled: true
+            - widget.non-native-theme.scrollbar.size.override: 16
     - restore ext settings
         - ublock
         - libredirect
