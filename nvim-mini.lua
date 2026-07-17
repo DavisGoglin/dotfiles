@@ -98,6 +98,9 @@ map('n', "<leader>tl", "<cmd>Trouble loclist toggle<cr>")
 map('n', "<leader>tq", "<cmd>Trouble qflist toggle<cr>")
 map('n', "<leader>ts", "<cmd>Trouble symbols toggle<cr>")
 
+add({source = 'benomahony/uv.nvim'})
+require('uv').setup()
+
 -- https://nvim-mini.org/mini.nvim/
 -- reviewed 2025-10
 
