@@ -27,9 +27,11 @@ My current collection of basic config files for my linux enviorment.
     - fish-ssh-agent
     - add ~/bin to path
 - utils
-    - https://github.com/ibraheemdev/modern-unix
+    - https://github.com/johnalanwoods/maintained-modern-unix
     - broot
     - eza
+    - atool
+    - dust
 - fonts
     - fira-code
     - sudo pacman -S (pacman -Ssq noto-fonts)
