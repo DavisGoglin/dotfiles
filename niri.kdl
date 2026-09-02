@@ -225,11 +225,20 @@ window-rule {
 // no player?
 // Editor: App ID: "org.godotengine.Editor" Title: "[file.tsc] - [project] - Godot Engine"
 // App: App ID: "[project]" Title: "Godot" changes to Title: "[project] (DEBUG)"
+/*
 window-rule {
 	match title="Godot"
 	open-on-output "DP-5"
 	open-focused true
 }
+*/
+
+/*
+window-rule {
+	match title=r#"^GBA\d.*$"#
+	open-floating true
+}
+*/
 
 window-rule {
 	match title="AJT Japanese - Audio search"
