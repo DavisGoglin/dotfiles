@@ -470,7 +470,10 @@ binds {
 
 	Print { screenshot; }
 	Ctrl+Print { screenshot-screen; }
-	Alt+Print { spawn-sh "hyprshot --raw -m region | llm 'extract text' -m openrouter/google/gemini-2.5-flash-lite -a - | wl-copy && wl-paste | xargs -0 notify-send Results"; }
+	Alt+Print {
+	    spawn-sh "out=$(hyprshot --raw -m region | llm 'extract text' -m openrouter/google/gemini-3.5-flash-lite -a -) && printf '%s' \"$out\" | wl-copy && notify-send 'Results' \"$out\"";
+	}
+	Alt+j { spawn-sh "notify-send 'Jisho' \"$(jisho -n2 $(wl-paste))\""; }
 
 	// Applications such as remote-desktop clients and software KVM switches may
 	// request that niri stops processing the keyboard shortcuts defined here
