@@ -474,6 +474,9 @@ binds {
 	    spawn-sh "out=$(hyprshot --raw -m region | llm 'extract text' -m openrouter/google/gemini-3.5-flash-lite -a -) && printf '%s' \"$out\" | wl-copy && notify-send 'Results' \"$out\"";
 	}
 	Alt+j { spawn-sh "notify-send 'Jisho' \"$(jisho -n2 $(wl-paste))\""; }
+	Shift+Alt+j {
+	    spawn-sh "word=$(printf '' | fuzzel --dmenu --prompt='jisho: ') || exit 1; notify-send 'Jisho' \"$(jisho -n 2 \"$word\")\"";
+	}
 
 	// Applications such as remote-desktop clients and software KVM switches may
 	// request that niri stops processing the keyboard shortcuts defined here
