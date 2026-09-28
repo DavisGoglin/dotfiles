@@ -11,8 +11,7 @@ clock_format = "%Y-%m-%d %H:%M"
 weather_location = { Coordinates = [45.6273, -122.6716] }
 
 [workspaces]
-visibility_mode="MonitorSpecific"
-indicator_format = "NameAndIcons"
+visibility_mode = "MonitorSpecificExclusive"
 
 [appearance]
 #font_name = "Atkinson Hyperlegible Next"
