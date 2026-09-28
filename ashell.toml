@@ -1,0 +1,40 @@
+[modules]
+left = [ "Workspaces", "MediaPlayer" ]
+center = [ "WindowTitle" ]
+right = [["Notifications"], ["Tray"], ["SystemInfo"], ["Tempo", "Privacy", "Settings" ] ]
+
+[system_info]
+indicators = [ "Cpu", "Memory", {Disk="/"}]
+
+[tempo]
+clock_format = "%Y-%m-%d %H:%M"
+weather_location = { Coordinates = [45.6273, -122.6716] }
+
+[workspaces]
+visibility_mode="MonitorSpecific"
+indicator_format = "NameAndIcons"
+
+[appearance]
+#font_name = "Atkinson Hyperlegible Next"
+font_name = "Fira Code"
+scale_factor = 1.2
+
+# Catppuccin Mocha
+success_color = "#a6e3a1"
+warning_color = "#f9e2af"
+danger_color = "#f38ba8"
+text_color = "#cdd6f4"
+
+workspace_colors = [ "#fab387", "#b4befe", "#cba6f7" ]
+
+[appearance.bar]
+surface = "solid"
+
+[appearance.primary_color]
+base = "#fab387"
+text = "#1e1e2e"
+
+[appearance.background_color]
+base = "#1e1e2e"
+weak = "#313244"
+strong = "#45475a"

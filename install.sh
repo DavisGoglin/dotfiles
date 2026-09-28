@@ -14,8 +14,8 @@ ln -s ~/dotfiles/nvim ~/.config/nvim/init.lua
 
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 
-mkdir -p ~/.config/waybar
-ln -s ~/dotfiles/waybar ~/.config/waybar/config
+mkdir -p ~/.config/ashell
+ln -s ~/dotfiles/ashell.toml ~/.config/ashell/config.toml
 
 mkdir -p ~/.config/waybar.style.css
 ln -s ~/dotfiles/waybar.style.css ~/.config/waybar/style.css
