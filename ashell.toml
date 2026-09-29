@@ -3,6 +3,10 @@ left = [ "Workspaces", "MediaPlayer" ]
 center = [ "WindowTitle" ]
 right = [["Notifications"], ["Tray"], ["SystemInfo"], ["Tempo", "Privacy", "Settings" ] ]
 
+[settings]
+audio_indicator_format = "IconAndPercentage"
+microphone_indicator_format = "IconAndPercentage"
+
 [system_info]
 indicators = [ "Cpu", "Memory", {Disk="/"}]
 
@@ -37,3 +41,6 @@ text = "#1e1e2e"
 base = "#1e1e2e"
 weak = "#313244"
 strong = "#45475a"
+
+[media_player]
+max_text_length = 60
