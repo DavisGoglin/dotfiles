@@ -48,15 +48,15 @@ input {
 // https://yalter.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
 output "DP-6" {
-	mode "3840x2160@164.991"
-	scale 1.25
 	position x=0 y=0
-	variable-refresh-rate on-demand=true
-	focus-at-startup
-}
-output "DP-5" {
 	mode "1920x1080@144.001"
 	variable-refresh-rate on-demand=true
+}
+output "DP-5" {
+	mode "3840x2160@164.991"
+	scale 1.25
+	variable-refresh-rate on-demand=true
+	focus-at-startup
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -471,7 +471,7 @@ binds {
 	Print { screenshot; }
 	Ctrl+Print { screenshot-screen; }
 	Alt+Print {
-	    spawn-sh "out=$(hyprshot --raw -m region | llm 'extract text' -m openrouter/google/gemini-3.5-flash-lite -a -) && printf '%s' \"$out\" | wl-copy && notify-send 'Results' \"$out\"";
+	    spawn-sh "out=$(hyprshot --raw -m region | llm 'reply with extracted text only' -m openrouter/~deepseek/deepseek-flash-latest -a -) && printf '%s' \"$out\" | wl-copy && notify-send 'Results' \"$out\"";
 	}
 	Alt+j { spawn-sh "notify-send 'Jisho' \"$(jisho -n2 $(wl-paste))\""; }
 	Shift+Alt+j {

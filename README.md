@@ -35,7 +35,7 @@ My current collection of basic config files for my linux enviorment.
 - fonts
     - fira-code
     - sudo pacman -S (pacman -Ssq noto-fonts)
-    - atkinson-hyperlegible (next?)
+    - atkinson-hyperlegible-next
 - firefox settings
     - fonts
         - override all fonts with atkinson
@@ -67,8 +67,7 @@ My current collection of basic config files for my linux enviorment.
         - hypridle
             - wayland-pipewire-idle-inhibit
         - hyprshot
-        - waybar
-        - dunst
+        - ashell
         - pipewire
         - wireplumber
         - xdg-desktop-portal-hyprland
