@@ -1,6 +1,6 @@
 -- only deviations from mini.basics
 vim.o.winborder = 'rounded'
-vim.o.mouse = i -- only insert
+vim.o.mouse = 'i' -- only insert
 vim.o.scrolloff = 2
 vim.o.visualbell = true
 vim.wo.relativenumber = true
@@ -44,10 +44,6 @@ map('n', '<leader>w', ':w<CR>')
 -- escape terminal
 map('t', '<leader>x', '<C-\\><C-n>')
 
--- hack python format
-map('n', '<leader>af', '<cmd>silent !black %<cr>')
-
-
 --------
 --- mini
 --------
@@ -82,16 +78,37 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 add({source = 'neovim/nvim-lspconfig'})
-vim.lsp.enable({'basedpyright', 'rust_analyzer'})
+vim.lsp.config('basedpyright', {
+  settings = {
+    basedpyright = {
+      disableOrganizeImports = true,
+      analysis = {
+        typeCheckingMode = 'standard',
+        diagnosticSeverityOverrides = {
+          reportUnusedImport = 'none',
+          reportUnusedVariable = 'none',
+        },
+      },
+    },
+  },
+})
 
-add({source = 'vim-autoformat/vim-autoformat'})
-map('n', '<F3>', ':Autoformat<CR>')
+vim.lsp.enable({ 'ruff', 'basedpyright', 'rust_analyzer' })
+
+add({source = 'stevearc/conform.nvim'})
+require('conform').setup({
+  formatters_by_ft = {
+    python = { 'ruff_fix', 'ruff_format' },   -- fixes first, then formats
+  },
+  format_on_save = { timeout_ms = 500, lsp_format = 'never' },
+})
+map('n', '<F3>', '<cmd>lua require("conform").format({ async = true })<cr>')
 
 add({source = 'folke/tokyonight.nvim'}) -- color scheme
 vim.cmd('colorscheme tokyonight-night')
 
 add({source = 'folke/trouble.nvim'})
-require("trouble").setup({})
+if not package.loaded['trouble'] then require('trouble').setup({}) end
 map('n', "<leader>td", "<cmd>Trouble diagnostics toggle<cr>")
 map('n', "<leader>tD", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>")
 map('n', "<leader>tl", "<cmd>Trouble loclist toggle<cr>")
@@ -113,7 +130,7 @@ require('mini.completion').setup()
 -- require('mini.keymap').setup()
 require('mini.move').setup()
 require('mini.operators').setup()
-require('mini.pairs').setup()
+-- require('mini.pairs').setup()
 -- require('mini.snippets').setup()
 -- require('mini.splitjoin').setup()
 require('mini.surround').setup()
@@ -140,6 +157,7 @@ require('mini.pick').setup() -- TODO: add hotkey later
 map('n', '<leader>mf', '<cmd>Pick files<cr>')
 map('n', '<leader>mg', '<cmd>Pick grep_live<cr>')
 map('n', '<leader>mG', '<cmd>Pick grep<cr>')
+map('n', '<leader>mb', '<cmd>Pick buffers<cr>')
 -- require('mini.sessions').setup()
 -- require('mini.visits').setup()
 
@@ -162,7 +180,10 @@ require('mini.hipatterns').setup({
 -- require('mini.indentscope').setup()
 -- require('mini.map').setup()
 require('mini.icons').setup()
-require('mini.notify').setup()
+require('mini.notify').setup({
+  lsp_progress = { enable = false },
+})
+
 -- require('mini.starter').setup()
 require('mini.statusline').setup()
 require('mini.tabline').setup()
