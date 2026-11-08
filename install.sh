@@ -10,7 +10,7 @@ mkdir -p ~/.config/hypr
 ln -s ~/dotfiles/hyprland.conf ~/.config/hypr/hyprland.conf
 
 mkdir -p ~/.config/nvim
-ln -s ~/dotfiles/nvim ~/.config/nvim/init.lua
+ln -s ~/dotfiles/nvim.lua ~/.config/nvim/init.lua
 
 ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 
